@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <action
+        android:id="@+id/to_nav_home"
+        app:destination="@id/nav_home"
+        />
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.rj.books.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_sell_a_book"
+            app:destination="@id/nav_sell_a_book" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_book_details"
+            app:destination="@id/nav_book_details">
+            <argument android:name="book" app:argType="com.rj.books.model.book.Book"/>
+        </action>
+        <action
+            android:id="@+id/action_nav_home_to_nav_my_books"
+            app:destination="@id/nav_my_books" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_settings"
+            app:destination="@id/nav_settings" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_my_profile"
+            app:destination="@id/nav_my_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sell_a_book"
+        android:name="com.rj.books.ui.sell_book.SellABookFragment"
+        android:label="@string/menu_sell_a_book"
+        tools:layout="@layout/fragment_sell_a_book" />
+
+    <fragment
+        android:id="@+id/nav_my_profile"
+        android:name="com.rj.books.ui.my_profile.MyProfileFragment"
+        android:label="@string/menu_my_profile"
+        tools:layout="@layout/fragment_my_profile" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.rj.books.ui.my_profile.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_my_books"
+        android:name="com.rj.books.ui.my_books.MyBooksFragment"
+        android:label="@string/menu_my_books"
+        tools:layout="@layout/fragment_my_books" />
+
+    <fragment
+        android:id="@+id/nav_book_details"
+        android:name="com.rj.books.ui.book_details.BookDetailsFragment"
+        android:label="@string/menu_book_details"
+        tools:layout="@layout/fragment_book_details" />
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.rj.books.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+</navigation>

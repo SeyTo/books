@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="title" format="string"/>
+    <declare-styleable name="BookList">
+        <attr name="title"/>
+    </declare-styleable>
+    <declare-styleable name="QuestionsView">
+        <attr name="title"/>
+        <attr name="question_title" format="string"/>
+    </declare-styleable>
+    <declare-styleable name="SellerList">
+        <attr name="title"/>
+    </declare-styleable>
+</resources>
