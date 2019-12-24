@@ -5,5 +5,6 @@ package com.rj.books.model.login.data
  */
 data class LoggedInUser(
     val userId: String,
-    val displayName: String
+    val displayName: String,
+    var isLoggedIn: Boolean = false
 )

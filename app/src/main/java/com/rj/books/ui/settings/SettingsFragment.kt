@@ -1,14 +1,17 @@
-package com.rj.books.ui.my_profile
+package com.rj.books.ui.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.rj.books.R
+import com.rj.books.ui.my_profile.SettingsViewModel
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : Fragment() {
 
@@ -21,11 +24,12 @@ class SettingsFragment : Fragment() {
     ): View? {
         settingsViewModel =
                 ViewModelProviders.of(this).get(SettingsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_my_profile, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
-        settingsViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+        return inflater.inflate(R.layout.fragment_settings, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        toolbar.setupWithNavController(findNavController())
+    }
+
 }

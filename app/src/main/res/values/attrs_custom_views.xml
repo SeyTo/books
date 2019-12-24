@@ -11,4 +11,16 @@
     <declare-styleable name="SellerList">
         <attr name="title"/>
     </declare-styleable>
+    <declare-styleable name="MaskedEditTextLayout">
+        <attr name="mask"/>
+    </declare-styleable>
+    <declare-styleable name="IconSwitch">
+        <attr name="orientation" format="enum">
+            <enum name="PORTRAIT" value="0"/>
+            <enum name="LANDSCAPE" value="1"/>
+        </attr>
+        <attr name="baseColor" format="color"/>
+        <attr name="actionOnDrawable" format="integer"/>
+        <attr name="actionOffDrawable" format="integer"/>
+    </declare-styleable>
 </resources>

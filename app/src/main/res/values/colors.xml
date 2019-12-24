@@ -5,6 +5,8 @@
     <color name="colorBackground">#fffffe</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorGrey1">#aaaaaa</color>
     <color name="colorWhite">#ffffff</color>
-    <color name="colorBlue">#00aaff</color>
+    <color name="colorBlue">#00ddff</color>
+    <color name="colorBuy">#ff101b</color>
 </resources>

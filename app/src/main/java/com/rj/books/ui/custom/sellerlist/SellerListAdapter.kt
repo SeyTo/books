@@ -45,7 +45,8 @@ class SellerListAdapter(
     }
 
     class SellersListAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val sellerImage: ImageView = itemView.findViewById(R.id.seller_image)
+        val primary: TextView = itemView.findViewById(R.id.primary)
+        val sellerImage: ImageView = itemView.findViewById(R.id.primary_img)
         val sellerName: TextView = itemView.findViewById(R.id.seller_name)
     }
 

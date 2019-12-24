@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.rj.books.R
 import com.rj.books.model.book.Book
+import kotlinx.android.synthetic.main.books_list.view.*
 
 class BookList: LinearLayout {
 
@@ -18,7 +19,7 @@ class BookList: LinearLayout {
     private var _books: ArrayList<Book>? = null
 
     private var booksList: RecyclerView? = null
-    private var header: TextView? = null
+    var header: TextView? = null
 
 
     /**
@@ -61,9 +62,7 @@ class BookList: LinearLayout {
             attrs, R.styleable.BookList, defStyle, 0
         )
 
-        _title = a.getString(
-            R.styleable.BookList_title
-        )
+        _title = a.getString(R.styleable.BookList_title)
 //        if (a.hasValue(R.styleable.BookShortList_exampleDrawable)) {
 //            exampleDrawable = a.getDrawable(
 //                R.styleable.BookShortList_exampleDrawable
@@ -74,27 +73,26 @@ class BookList: LinearLayout {
         a.recycle()
 
         // Set up a default TextPaint object
-        val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.books_list, this)
+        val root: View = View.inflate(context, R.layout.books_list, this)
 
+//        val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+//        inflater.inflate(R.layout.books_list, this)
+//        val root: View = LayoutInflater.from(context).inflate(R.layout.books_list, this, false)
 
+        header = findViewById(R.id.header)
+        header?.text = _title
+        booksList = findViewById(R.id.recycler_view)
+        booksList?.apply {
+            layoutManager = CustomerLinearLayoutManager(context)
+            adapter = BooksListAdapter(context)
+//            addItemDecoration(SpacerDecoration(30))
+        }
         // Update TextPaint and text measurements from attributes
         invalidateTextPaintAndMeasurements()
     }
 
-    override fun onFinishInflate() {
-        super.onFinishInflate()
 
-        header = findViewById(R.id.header)
-        booksList = findViewById(R.id.recycler_view)
-        booksList?.apply {
-            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-            adapter = BooksListAdapter(context)
-            addItemDecoration(SpacerDecoration(30))
-        }
-    }
-
-    public fun setOnBookClickListener(booksClickListener: (book: Book) -> Unit) {
+    fun setOnBookClickListener(booksClickListener: (book: Book) -> Unit) {
         (booksList!!.adapter as BooksListAdapter).clickListener = booksClickListener
     }
 
@@ -121,4 +119,7 @@ class BookList: LinearLayout {
 
 }
 
+class CustomerLinearLayoutManager(val context: Context): LinearLayoutManager(context, RecyclerView.HORIZONTAL, false) {
+    override fun canScrollVertically(): Boolean = false
 
+}

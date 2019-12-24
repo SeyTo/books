@@ -6,12 +6,8 @@
     android:layout_height="match_parent" >
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:background="@color/colorBackground"
         app:elevation="4dp"
         app:liftOnScroll="true"
@@ -21,11 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:expandedTitleGravity="bottom"
-            app:statusBarScrim="@color/colorBlack"
             app:contentScrim="@color/colorBlue"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:title="Lord Of The Rings"
-            app:expandedTitleTextAppearance="@style/AppTheme.Title.ExpandedTitleAppearance"
+            app:expandedTitleTextAppearance="@style/AppTheme.UI.Text.Title.LargeTitleAppearance"
+            app:scrimAnimationDuration="100"
+            android:fitsSystemWindows="true"
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,6 +33,7 @@
                 >
 
                 <ImageView
+                    android:id="@+id/book_color"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="160dp"
@@ -43,6 +41,7 @@
                     />
 
                 <ImageView
+                    android:id="@+id/book_image"
                     android:src="@drawable/ic_book_cover_fake"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
@@ -55,11 +54,42 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:navigationIcon="@drawable/ic_arrow_back"
                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom|end"
+                app:layout_collapseMode="pin"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/bookmark"
+                    android:src="@drawable/ic_heart_unfilled"
+                    android:background="@android:color/transparent"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    />
+
+                <TextView
+                    android:id="@+id/book_buy"
+                    android:text="BUY"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    style="@style/AppTheme.UI.Button.Buy.Max"
+                    />
+            </LinearLayout>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -86,6 +116,7 @@
                 />
 
             <TextView
+                android:id="@+id/book_author"
                 android:text="J. R. R. Tolkien"
                 style="@style/AppTheme.UI.Text.Content.Paragraph"
                 android:layout_width="match_parent"
@@ -103,6 +134,7 @@
                 />
 
             <TextView
+                android:id="@+id/book_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/book_title"
@@ -113,11 +145,9 @@
                 />
 
             <com.rj.books.ui.custom.sellerlist.SellerList
-                android:id="@+id/sellers"
+                android:id="@+id/sellers_short_list"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:title="Sellers"
-                />
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

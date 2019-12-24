@@ -59,7 +59,7 @@ class SellerList: LinearLayout {
             attrs, R.styleable.SellerList, defStyle, 0
         )
 
-        _title = a.getString(R.styleable.SellerList_title)
+        _title = a.getString(R.styleable.SellerList_title) ?: ""
 //        _titleStyle = if (a.hasValue(R.styleable.SellerList_title_style)) a.getInt(R.styleable.SellerList_title_style) : R.
 //        if (a.hasValue(R.styleable.BookShortList_exampleDrawable)) {
 //            exampleDrawable = a.getDrawable(

@@ -8,6 +8,8 @@
     <action
         android:id="@+id/to_nav_home"
         app:destination="@id/nav_home"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
         />
 
     <fragment
@@ -17,39 +19,74 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_nav_home_to_nav_sell_a_book"
-            app:destination="@id/nav_sell_a_book" />
+            app:destination="@id/nav_sell_a_book"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
         <action
             android:id="@+id/action_nav_home_to_nav_book_details"
-            app:destination="@id/nav_book_details">
+            app:destination="@id/nav_book_details"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            >
             <argument android:name="book" app:argType="com.rj.books.model.book.Book"/>
         </action>
         <action
             android:id="@+id/action_nav_home_to_nav_my_books"
-            app:destination="@id/nav_my_books" />
-        <action
-            android:id="@+id/action_nav_home_to_nav_settings"
-            app:destination="@id/nav_settings" />
+            app:destination="@id/nav_my_books"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
         <action
             android:id="@+id/action_nav_home_to_nav_my_profile"
-            app:destination="@id/nav_my_profile" />
+            app:destination="@id/nav_my_profile"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
+        <action
+            android:id="@+id/action_nav_home_to_bookVerticalListFragment"
+            app:destination="@id/nav_book_vertical_list"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
     </fragment>
 
     <fragment
         android:id="@+id/nav_sell_a_book"
         android:name="com.rj.books.ui.sell_book.SellABookFragment"
         android:label="@string/menu_sell_a_book"
-        tools:layout="@layout/fragment_sell_a_book" />
+        tools:layout="@layout/fragment_sell_a_book" >
+        <action
+            android:id="@+id/action_nav_sell_a_book_to_createBookOfferFragment"
+            app:destination="@id/nav_create_book_offer"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_my_profile"
         android:name="com.rj.books.ui.my_profile.MyProfileFragment"
         android:label="@string/menu_my_profile"
-        tools:layout="@layout/fragment_my_profile" />
+        tools:layout="@layout/fragment_my_profile" >
+        <action
+            android:id="@+id/action_nav_my_profile_to_nav_my_bookmarks"
+            app:destination="@id/nav_my_settings"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
+        <action
+            android:id="@+id/action_nav_my_profile_to_bookVerticalListFragment"
+            app:destination="@id/nav_book_vertical_list"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_settings"
-        android:name="com.rj.books.ui.my_profile.SettingsFragment"
-        android:label="@string/menu_settings"
+        android:id="@+id/nav_my_settings"
+        android:name="com.rj.books.ui.settings.SettingsFragment"
+        android:label="@string/menu_my_settings"
         tools:layout="@layout/fragment_settings" />
 
     <fragment
@@ -62,11 +99,36 @@
         android:id="@+id/nav_book_details"
         android:name="com.rj.books.ui.book_details.BookDetailsFragment"
         android:label="@string/menu_book_details"
-        tools:layout="@layout/fragment_book_details" />
+        tools:layout="@layout/fragment_book_details" >
+        <action
+            android:id="@+id/action_nav_book_details_to_sellersFragment"
+            app:destination="@id/nav_sellers" />
+    </fragment>
 
     <activity
-        android:id="@+id/loginActivity"
+        android:id="@+id/nav_login_activity"
         android:name="com.rj.books.ui.login.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/nav_sellers"
+        android:name="com.rj.books.ui.sellers.SellersFragment"
+        android:label="fragment_sellers"
+        tools:layout="@layout/fragment_sellers" />
+    <fragment
+        android:id="@+id/nav_create_book_offer"
+        android:name="com.rj.books.ui.create_book_offer.CreateBookOfferFragment"
+        android:label="fragment_create_book_offer"
+        tools:layout="@layout/fragment_create_book_offer" />
+    <fragment
+        android:id="@+id/nav_book_vertical_list"
+        android:name="com.rj.books.ui.booklist.BookVerticalListFragment"
+        android:label="BookVerticalListFragment" >
+        <action
+            android:id="@+id/action_nav_book_vertical_list_to_nav_book_details"
+            app:destination="@id/nav_book_details"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            />
+    </fragment>
 </navigation>

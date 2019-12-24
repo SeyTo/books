@@ -28,7 +28,7 @@
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="AppTheme.Title.ExpandedTitleAppearance" parent="AppTheme.UI">
+    <style name="AppTheme.UI.Text.Title.LargeTitleAppearance" parent="AppTheme.UI">
         <item name="android:textSize">22sp</item>
     </style>
 
@@ -41,12 +41,71 @@
         <item name="android:fontWeight">400</item>
     </style>
 
+    <style name="AppTheme.UI.Text.Singular.PriceSymbol" parent="AppTheme.UI">
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+
+    <style name="AppTheme.UI.Text.Button" parent="AppTheme.UI">
+        <item name="android:text">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
     <style name="AppTheme.UI.Text.Content.Paragraph" parent="AppTheme.UI">
         <item name="android:paddingStart">30dp</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:paddingEnd">16dp</item>
         <item name="android:textColor">#6f6f6f</item>
+    </style>
+
+    <style name="AppTheme.UI.Button.Buy.Max" parent="AppTheme.UI">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBuy</item>
+    </style>
+
+    <style name="AppTheme.UI.Button.Highlight" parent="AppTheme.UI">
+        <item name="android:textSize">14sp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+
+    </style>
+
+    <style name="AppTheme.UI.Button.Text" parent="AppTheme.UI">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle"></item>
+        <item name="android:textColor">@color/colorBuy</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <style name="AppTheme.UI.Form.Price" parent="AppTheme.UI">
+        <item name="android:layout_marginStart">30dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+    </style>
+
+    <!-- res/values-v19/styles.xml -->
+    <style name="AppTheme.UI.Window" parent="AppTheme.UI">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <!-- res/values-v21/styles.xml -->
+    <style name="AppTheme.UI.Window.StatusBar" parent="AppTheme.UI">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
 </resources>

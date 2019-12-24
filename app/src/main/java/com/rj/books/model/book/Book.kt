@@ -6,4 +6,4 @@ import kotlinx.android.parcel.Parcelize
 
 @Keep
 @Parcelize
-data class Book(val name: String, val image: String): Parcelable
+data class Book(val name: String, val image: String = "", val author: String = "", val description: String = ""): Parcelable

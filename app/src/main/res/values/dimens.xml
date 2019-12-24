@@ -9,4 +9,6 @@
     <dimen name="default_book_cover_image_width">144dp</dimen>
     <dimen name="default_book_cover_image_height">168dp</dimen>
     <dimen name="stub_bottom_size">64dp</dimen>
+    <dimen name="topbar_size">64dp</dimen>
+    <dimen name="navbar_size">64dp</dimen>
 </resources>

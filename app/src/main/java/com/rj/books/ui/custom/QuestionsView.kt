@@ -42,13 +42,8 @@ class QuestionsView : LinearLayout {
 
         a.recycle()
 
-        initViews()
-    }
-
-    override fun onFinishInflate() {
-        super.onFinishInflate()
         orientation = VERTICAL
-        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
+        layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
 
         val title = TextView(context)
         title.text = _title
@@ -57,11 +52,10 @@ class QuestionsView : LinearLayout {
         val question = TextView(context)
         question.text = "This is a random question"
         addView(question)
-//        invalidate()
-//        requestLayout()
     }
 
-    private fun initViews() {
+    override fun onFinishInflate() {
+        super.onFinishInflate()
 
     }
 
