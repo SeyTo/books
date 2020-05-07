@@ -1,5 +1,6 @@
 package com.rj.books.ui.login
 
+import android.animation.Animator
 import android.app.Activity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -10,30 +11,43 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import com.rj.books.R
 import com.rj.books.model.login.data.LoggedInUserView
 
 class LoginActivity : AppCompatActivity() {
 
+    companion object {
+        const val INTENT_AUTH_MODE = "INTENT_AUTH_MODE"
+        const val INTENT_REGISTER_MODE = 0
+        const val INTENT_LOGIN_MODE = 1
+    }
+
     private lateinit var loginViewModel: LoginViewModel
+
+    private lateinit var title: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_login)
 
+        title = findViewById<TextView>(R.id.action_title)
         val username = findViewById<EditText>(R.id.username)
         val password = findViewById<EditText>(R.id.password)
         val login = findViewById<Button>(R.id.login)
+        val register = findViewById<Button>(R.id.register)
         val loading = findViewById<ProgressBar>(R.id.loading)
+
+        register.setOnClickListener {
+            updateUIForRegister()
+        }
 
         loginViewModel = ViewModelProviders.of(this,
             LoginViewModelFactory()
         ).get(LoginViewModel::class.java)
+
+        loginViewModel.changeAuthMode(intent.getIntExtra(INTENT_AUTH_MODE, INTENT_LOGIN_MODE))
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
@@ -84,6 +98,7 @@ class LoginActivity : AppCompatActivity() {
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->
                         loginViewModel.login(
+                            this@LoginActivity,
                             username.text.toString(),
                             password.text.toString()
                         )
@@ -93,9 +108,17 @@ class LoginActivity : AppCompatActivity() {
 
             login.setOnClickListener {
                 loading.visibility = View.VISIBLE
-                loginViewModel.login(username.text.toString(), password.text.toString())
+                loginViewModel.login(
+                    this@LoginActivity,
+                    username.text.toString(),
+                    password.text.toString()
+                )
             }
         }
+    }
+
+    private fun updateUIForRegister() {
+        title.text = "Register"
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {

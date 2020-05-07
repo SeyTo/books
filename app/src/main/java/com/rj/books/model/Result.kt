@@ -1,4 +1,4 @@
-package com.rj.books.model.login.data
+package com.rj.books.model
 
 /**
  * A generic class that holds a value with its loading status.

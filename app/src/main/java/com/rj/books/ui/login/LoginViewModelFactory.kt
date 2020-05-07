@@ -2,7 +2,7 @@ package com.rj.books.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.rj.books.model.login.data.LoginDataSource
+import com.rj.books.model.login.data.LoginRemoteDataSource
 import com.rj.books.model.login.data.LoginRepository
 
 /**
@@ -16,7 +16,7 @@ class LoginViewModelFactory : ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
             return LoginViewModel(
                 loginRepository = LoginRepository(
-                    dataSource = LoginDataSource()
+                    remoteDataSource = LoginRemoteDataSource()
                 )
             ) as T
         }
